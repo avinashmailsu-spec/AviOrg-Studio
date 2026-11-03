@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="author" content="Avinash Ekka"><meta name="theme-color" content="#10172b"><title>AviOrg Studio | Pro 6.1 — Intelligent Organization Design</title><meta name="description" content="AviOrg Studio — professional offline organization chart designer, Excel import, editable PowerPoint export and workforce analytics. Developed by Avinash Ekka."><link rel="icon" type="image/svg+xml" href="assets/brand/logo.svg"><link rel="stylesheet" href="assets/css/styles.css"><link rel="stylesheet" href="assets/css/pro4.css"><link rel="stylesheet" href="assets/css/pro5.css"><link rel="stylesheet" href="assets/css/pro6.css"><link rel="stylesheet" href="assets/css/premium.css"></head>
+<body>
+<div class="app-shell" id="appShell">
+  <aside class="rail">
+    <div class="brand-mark" title="AviOrg Studio — developed by Avinash Ekka"><svg viewBox="0 0 44 44" width="35" height="35" role="img" aria-label="AviOrg logo" xmlns="http://www.w3.org/2000/svg"><path d="M12 29 22 10 32 29 M17 22h10" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 28v5 M12 33h20" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="33" r="2.3" fill="#B6F3EB"/><circle cx="22" cy="33" r="2.3" fill="#B6F3EB"/><circle cx="32" cy="33" r="2.3" fill="#B6F3EB"/></svg></div>
+    <div class="rail-divider"></div>
+    <button class="rail-btn active" data-panel="people" title="People & data"><span class="rail-ico">▦</span><span>People</span></button>
+    <button class="rail-btn" data-panel="themes" title="500 premium design presets"><span class="rail-ico">◉</span><span>Design</span></button>
+    <button class="rail-btn" data-panel="layout" title="Layout & connectors"><span class="rail-ico">⋈</span><span>Layout</span></button>
+    <button class="rail-btn" data-panel="insights" title="Organization insights"><span class="rail-ico">▥</span><span>Insights</span></button>
+    <button class="rail-btn" data-panel="scenarios" title="Scenario planning"><span class="rail-ico">⧉</span><span>Plan</span></button>
+    <button class="rail-btn" data-panel="office" title="Microsoft Office tools"><span class="rail-ico">▤</span><span>Office</span></button>
+    <button class="rail-btn" data-panel="precision" title="Precision editor"><span class="rail-ico">⌗</span><span>Editor</span></button>
+    <button class="rail-btn" data-panel="ai" title="AI-assisted chart generation"><span class="rail-ico">✧</span><span>AI</span></button>
+    <button class="rail-btn" data-panel="workforce" title="Workforce analytics"><span class="rail-ico">▤</span><span>Workforce</span></button>
+    <button class="rail-btn" data-panel="reviews" title="Review and approval workspace"><span class="rail-ico">♧</span><span>Reviews</span></button>
+    <button class="rail-btn" data-panel="navigator" title="Navigator and saved views"><span class="rail-ico">⊞</span><span>Navigate</span></button>
+    <button class="rail-btn" data-panel="copilot" title="Natural-language command copilot"><span class="rail-ico">✦</span><span>Copilot</span></button>
+    <button class="rail-btn" data-panel="datahub" title="Intelligent field mapping"><span class="rail-ico">▧</span><span>Data Hub</span></button>
+    <button class="rail-btn" data-panel="forecast" title="Workforce scenario models"><span class="rail-ico">↗</span><span>Forecast</span></button>
+
+    <button class="rail-btn" data-panel="universal" title="Universal importer"><span class="rail-ico">⇪</span><span>Import 6</span></button>
+    <button class="rail-btn" data-panel="layoutdoctor" title="Layout intelligence"><span class="rail-ico">⚙</span><span>Layout 6</span></button>
+    <button class="rail-btn" data-panel="officerefresh" title="Office refresh center"><span class="rail-ico">⇄</span><span>Office 6</span></button>
+    <button class="rail-btn" data-panel="intelligence" title="Workforce intelligence"><span class="rail-ico">▥</span><span>Intel 6</span></button>
+    <button class="rail-btn" data-panel="performance" title="Performance center"><span class="rail-ico">⚡</span><span>Scale 6</span></button>
+    <div class="rail-spacer"></div><button class="rail-btn" id="helpBtn" title="Help & shortcuts"><span class="rail-ico">?</span><span>Help</span></button>
+    <div class="rail-avatar" title="AviOrg Studio">A</div>
+  </aside>
+  <aside class="sidebar">
+    <div class="side-head"><div class="app-wordmark">Avi<span class="aviorg-word-accent">Org</span><span class="sparkle">✦</span></div><div class="side-subtitle">ORGANIZATION DESIGN STUDIO <span class="pro-pill">PRO 6.1</span></div></div>
+    <section class="side-panel active" id="panel-people">
+      <div class="section-caption">WORKSPACE</div><div class="pane-heading"><h2>Your people</h2><span class="count-pill" id="sidePeopleCount">11</span></div>
+      <p class="muted pane-intro">Build a hierarchy in seconds. Click a person to edit their details.</p>
+      <div class="side-actions"><button class="primary-btn" id="addRootBtn">＋ Add person</button><button class="icon-button" title="Bulk edit directory" id="openTableBtn">▤</button></div><button class="side-new-link" id="newSideBtn">＋ Start a new blank chart</button>
+      <label class="searchbox"><span class="search-ico">⌕</span><input id="peopleSearch" placeholder="Search team members..." aria-label="Search people"></label>
+      <div class="people-list" id="peopleList"></div>
+      <div class="side-help-card"><div class="tiny-icon">↥</div><div><b>Have an Excel file?</b><span>Upload your whole organization in one go.</span><button id="importSideBtn">Import spreadsheet <span>↗</span></button></div></div>
+    </section>
+    <section class="side-panel" id="panel-themes">
+      <div class="section-caption">DESIGN LIBRARY</div><div class="pane-heading"><h2>500 styles</h2><span class="count-pill">500</span></div><p class="muted pane-intro">Curated combinations of 10 card designs and 50 color palettes, with your own corporate brand colors.</p>
+      <label class="searchbox"><span class="search-ico">⌕</span><input id="presetSearch" placeholder="Search styles or colors..." aria-label="Search theme presets"></label>
+      <div class="selected-theme-card"><div class="mini-label">CURRENT STYLE</div><div id="activeThemeTitle">Aurora · Elevated</div><div class="theme-colors" id="activeSwatches"></div><div class="custom-color-row"><label for="customAccent">Custom accent</label><input id="customAccent" type="color" value="#665cf0" aria-label="Custom card accent color"><button id="resetAccent" title="Reset theme color">↺</button></div></div>
+      <div class="filter-tabs" id="themeFilters"><button class="chosen" data-stylefilter="all">All 500</button><button data-stylefilter="modern">Modern</button><button data-stylefilter="classic">Classic</button><button data-stylefilter="bold">Bold</button></div>
+      <div class="preset-gallery" id="presetGallery"></div><button class="secondary-btn wide-btn" id="morePresets" hidden>Show more designs ↓</button>
+      <div class="section-line"></div><div class="section-caption">BRAND STUDIO</div>
+      <div class="brand-controls"><label for="customBackground">Canvas background</label><input id="customBackground" type="color" value="#ffffff" title="Custom background"><button class="secondary-btn" id="resetBackground">Reset</button></div>
+      <div class="form-section"><label for="fontFamily">Card typography</label><select id="fontFamily"><option value="Arial">Aptos / Arial</option><option value="Georgia">Classic serif</option><option value="Verdana">Modern readable</option><option value="Trebuchet MS">Soft modern</option><option value="Tahoma">Technical clean</option></select></div>
+      <div class="form-section"><label for="colorMode">Card color scheme</label><select id="colorMode"><option value="theme">One brand color</option><option value="department">Color by department</option></select></div>
+    </section>
+    <section class="side-panel" id="panel-layout">
+      <div class="section-caption">CANVAS SETTINGS</div><div class="pane-heading"><h2>Layout & lines</h2></div><p class="muted pane-intro">Precise spacing, flexible connector routing, and visual fine-tuning.</p>
+      <div class="form-section"><label>Chart orientation</label><div class="layout-options" id="layoutOptions"><button data-layout="vertical" class="chosen">↧ <span>Top-down</span></button><button data-layout="horizontal">↦ <span>Left-right</span></button><button data-layout="radial">◉ <span>Radial</span></button></div></div>
+      <div class="form-section"><div class="field-label"><label for="horizontalGap">Sibling spacing</label><output id="hGapValue">32 px</output></div><input class="range-input" id="horizontalGap" type="range" min="8" max="130" step="2" value="32"></div>
+      <div class="form-section"><div class="field-label"><label for="verticalGap">Level spacing</label><output id="vGapValue">86 px</output></div><input class="range-input" id="verticalGap" type="range" min="22" max="220" step="2" value="86"></div>
+      <div class="form-section"><div class="field-label"><label for="cardWidth">Card width</label><output id="cardWValue">212 px</output></div><input class="range-input" id="cardWidth" type="range" min="156" max="290" step="2" value="212"></div>
+      <div class="form-section"><div class="field-label"><label for="cardHeight">Card height</label><output id="cardHValue">98 px</output></div><input class="range-input" id="cardHeight" type="range" min="76" max="150" step="2" value="98"></div>
+      <div class="form-section"><label>One-click layout density</label><div class="density-actions"><button type="button" class="secondary-btn" id="compactLayoutBtn">▤ Compact</button><button type="button" class="secondary-btn" id="spaciousLayoutBtn">▦ Spacious</button></div><small class="density-tip">Auto-adjusts node size and spacing without losing records.</small></div>
+      <div class="section-line"></div><div class="section-caption">CONNECTOR DESIGN</div>
+      <div class="form-section"><label for="lineStyle">Connector routing</label><select id="lineStyle"><option value="elbow">Orthogonal / elbow</option><option value="straight">Straight</option><option value="curve">Smooth curves</option><option value="step">Soft steps</option></select></div>
+      <div class="form-section"><label for="lineDash">Line pattern</label><select id="lineDash"><option value="solid">Solid</option><option value="dashed">Dashed</option><option value="dotted">Dotted</option></select></div>
+      <div class="form-section"><div class="field-label"><label for="lineWidth">Stroke width</label><output id="lineWValue">2 px</output></div><input class="range-input" id="lineWidth" type="range" min="1" max="6" step="0.5" value="2"></div>
+      <div class="form-section two-fields"><div><label for="lineColor">Line color</label><input type="color" id="lineColor" value="#a8b4cc"></div><div><label for="lineArrows">Arrowheads</label><select id="lineArrows"><option value="none">None</option><option value="end">Show arrows</option></select></div></div>
+      <div class="section-line"></div><div class="form-section toggle-row"><div><b>Show departments</b><small>Include team labels in cards</small></div><input type="checkbox" id="showDept" checked></div>
+      <div class="form-section toggle-row"><div><b>Show avatars</b><small>Colored initials for every person</small></div><input type="checkbox" id="showAvatars" checked></div>
+      <div class="form-section toggle-row"><div><b>Snap to grid</b><small>Keep manual movement consistent</small></div><input type="checkbox" id="snapGrid" checked></div>
+      <div class="form-section"><div class="field-label"><label for="gridSize">Grid spacing</label><output id="gridValue">12 px</output></div><input class="range-input" id="gridSize" type="range" min="4" max="32" step="2" value="12"></div>
+      <div class="form-section toggle-row"><div><b>Dotted-line reporting</b><small>Display secondary-manager links</small></div><input type="checkbox" id="showMatrix" checked></div>
+      <div class="form-section"><label for="matrixColor">Dotted-line color</label><input type="color" id="matrixColor" value="#b369ed" class="small-color-control"></div>
+      <div class="form-section toggle-row"><div><b>Show grade labels</b><small>Display position level / grade on cards</small></div><input type="checkbox" id="showGrade" checked></div>
+      <div class="form-section toggle-row"><div><b>Position status labels</b><small>Highlight vacant and planned positions</small></div><input type="checkbox" id="showStatus" checked></div>
+      <div class="form-section toggle-row"><div><b>Show employee ID</b><small>Helpful for enterprise chart reviews</small></div><input type="checkbox" id="showID"></div>
+      <button class="primary-btn wide-btn" id="tidyPositionsBtn">✦ Smart tidy canvas</button>
+      <button class="secondary-btn wide-btn" id="resetPositionsBtn" style="margin-top:9px">↺ Reset manual positions</button>
+    </section>
+    <section class="side-panel" id="panel-insights">
+      <div class="section-caption">ORGANIZATIONAL INTELLIGENCE</div><div class="pane-heading"><h2>Insights</h2><span class="count-pill">LIVE</span></div>
+      <p class="muted pane-intro">Understand hierarchy depth, team composition and reporting load instantly.</p>
+      <div id="insightCards" class="insight-cards"></div>
+      <h3 class="insight-heading">Department makeup</h3><div id="departmentInsights"></div>
+      <h3 class="insight-heading">Managers by team size</h3><div id="managerInsights"></div>
+      <h3 class="insight-heading">Data quality</h3><div id="qualityInsights"></div>
+      <button id="insightReportBtn" class="primary-btn wide-btn" style="margin-top:16px">Export insights as CSV</button>
+    </section>
+    <section class="side-panel" id="panel-scenarios">
+      <div class="section-caption">WORKFORCE PLANNING</div><div class="pane-heading"><h2>Scenario planner</h2><span class="count-pill">WHAT-IF</span></div>
+      <p class="muted pane-intro">Save your current reporting structure, experiment with changes, and compare before and after. All scenarios stay in this browser.</p>
+      <div class="scenario-hero"><div class="scenario-icon">⧉</div><b>Organizational change studio</b><span>Compare positions, managers, vacancies, departments and job titles.</span></div>
+      <div class="scenario-actions"><button id="captureBaselineBtn" class="primary-btn wide-btn">◉ Save baseline snapshot</button><button id="compareScenarioBtn" class="secondary-btn wide-btn">⊞ Detailed change report</button><button id="exportScenarioBtn" class="secondary-btn wide-btn">↓ Export change log CSV</button><button id="restoreBaselineBtn" class="quiet-btn wide-btn">↺ Restore saved baseline</button></div>
+      <div id="scenarioSummary" class="scenario-summary"></div>
+      <p class="scenario-note">To prepare a proposed reorganization, save a baseline first. You can then reassign managers, mark positions vacant, or import an updated Excel workbook.</p>
+    </section>
+    <section class="side-panel" id="panel-office">
+      <div class="section-caption">MICROSOFT 365 WORKFLOWS</div><div class="pane-heading"><h2>Office integration</h2></div><p class="muted pane-intro">Bring your structure into the tools your organization already uses.</p>
+      <div class="office-tile"><div class="office-app-logo power">P</div><div><b>Microsoft PowerPoint</b><p>Export an editable presentation with individual shapes, text boxes and connector lines.</p><button id="officePptxBtn">Export editable PPTX ↗</button></div></div>
+      <div class="office-tile"><div class="office-app-logo excel">X</div><div><b>Microsoft Excel</b><p>Import bulk employee records, update data, and export it back to a formatted XLSX file.</p><button id="officeExcelBtn">Export to Excel ↗</button></div></div>
+      <div class="office-tile"><div class="office-app-logo paste">↗</div><div><b>Copy into Office</b><p>Copy a crisp PNG to paste into Word, Excel, PowerPoint, or Teams.</p><button id="copyImageBtn">Copy chart image ↗</button></div></div>
+      <div class="office-export-options"><label for="pptPageMode">PowerPoint slide structure</label><select id="pptPageMode"><option value="teams">Overview + leader/team slides</option><option value="departments">Overview + department slides</option><option value="overview">Overview only</option><option value="board">Board-ready deck + departmental slides</option><option value="pages">Paginated by reporting teams</option></select><p>All chart elements remain editable in PowerPoint.</p></div>
+      <button class="secondary-btn wide-btn" id="officeImportBtn">↥ Import from Excel / CSV</button>
+      <button class="quiet-btn wide-btn" id="officeTemplateBtn">↓ Download Excel template</button>
+      <div class="integration-note"><b>How integration works</b><p>File-based Microsoft Office interoperability works offline. Live cloud sync or an installed Office add-in requires a Microsoft 365 connection and deployment.</p></div>
+    </section>
+
+    <section class="side-panel" id="panel-precision">
+      <div class="section-caption">PRECISION DESIGN STUDIO</div><div class="pane-heading"><h2>Visual editor</h2><span class="count-pill">PRO</span></div>
+      <p class="muted pane-intro">Ctrl/⌘-click or Shift-click cards to multi-select. Align, distribute and nudge without losing your chart data.</p>
+      <div class="pro-metric-box"><b id="v4SelectionCount">1 selected</b><small>Hold Ctrl/⌘ to add another card</small></div>
+      <div class="v4-button-grid"><button class="secondary-btn" id="v4SelectAll">Select visible</button><button class="secondary-btn" id="v4ClearSelection">Clear selection</button><button class="secondary-btn" id="v4AlignLeft">Align left</button><button class="secondary-btn" id="v4AlignTop">Align top</button><button class="secondary-btn" id="v4DistH">Distribute ↔</button><button class="secondary-btn" id="v4DistV">Distribute ↕</button><button class="secondary-btn" id="v4LockNodes">Lock selected</button><button class="secondary-btn" id="v4UnlockNodes">Unlock selected</button></div>
+      <div class="section-line"></div><div class="section-caption">PRECISE POSITION</div>
+      <div class="form-section two-fields"><div><label for="v4OffsetX">X offset (px)</label><input type="number" id="v4OffsetX" step="1" value="0"></div><div><label for="v4OffsetY">Y offset (px)</label><input type="number" id="v4OffsetY" step="1" value="0"></div></div>
+      <button class="primary-btn wide-btn" id="v4ApplyOffset">Apply offset to selected</button>
+      <div class="section-line"></div><div class="section-caption">REUSABLE DESIGN KITS</div>
+      <label class="v4-field-label" for="v4TemplateName">Template name</label><input id="v4TemplateName" placeholder="e.g. Boardroom Navy" maxlength="80">
+      <button class="secondary-btn wide-btn" id="v4SaveTemplate" style="margin-top:8px">Save current design kit</button>
+      <div id="v4Templates" class="v4-mini-list"></div>
+      <p class="v4-help">Your templates are kept locally and can also be exported as JSON project backups.</p>
+      <div class="section-line"></div><button class="secondary-btn wide-btn" id="v4QualityCheck">✧ Inspect visual quality</button>
+      <div id="v4QualityResults" class="v4-mini-list"></div>
+    </section>
+    <section class="side-panel" id="panel-ai">
+      <div class="section-caption">SMART ORGANIZATION BUILDER</div><div class="pane-heading"><h2>AI Studio</h2><span class="count-pill">BETA</span></div>
+      <p class="muted pane-intro">Turn an outline into editable positions with an offline smart parser. For generative AI, optionally connect to a local Ollama model.</p>
+      <label class="v4-field-label" for="v4AiText">Paste a reporting outline</label><textarea id="v4AiText" rows="9" placeholder="Alex Morgan | CEO | Executive
+  Priya Shah | COO | Operations
+    Sofia Patel | Operations Lead | Operations
+  Jordan Lee | CTO | Technology"></textarea>
+      <div class="v4-button-grid"><button class="secondary-btn" id="v4ExampleOutline">Load example</button><button class="primary-btn" id="v4ParseOutline">Preview hierarchy</button></div>
+      <div id="v4AiPreview" class="v4-mini-list"></div>
+      <div class="section-line"></div><div class="section-caption">OPTIONAL LOCAL LLM</div>
+      <p class="v4-help">Requires your own running Ollama service and CORS permission for this HTML app. It does not connect to OpenAI or send data automatically.</p>
+      <label class="v4-field-label" for="v4AiModel">Ollama model</label><input id="v4AiModel" value="llama3.2" autocomplete="off">
+      <button class="secondary-btn wide-btn" id="v4OllamaGenerate" style="margin-top:9px">Generate with local model</button>
+      <p class="v4-help">You approve and validate all generated rows before any are added to your project.</p>
+    </section>
+    <section class="side-panel" id="panel-workforce">
+      <div class="section-caption">WORKFORCE INTELLIGENCE</div><div class="pane-heading"><h2>Plan & analyze</h2><span class="count-pill">LIVE</span></div>
+      <p class="muted pane-intro">Headcount, FTE, planning cost, management spans, department mix, and saved versions.</p>
+      <div id="v4Kpis" class="v4-kpis"></div>
+      <div class="section-line"></div><div class="section-caption">DEPARTMENT WORKFORCE</div><div id="v4DeptAnalytics"></div>
+      <div class="section-line"></div><div class="section-caption">STRUCTURE DIAGNOSTICS</div><div id="v4Health"></div>
+      <button class="secondary-btn wide-btn" id="v4ExportWorkforce" style="margin-top:10px">Export workforce metrics (CSV)</button>
+      <div class="section-line"></div><div class="section-caption">VERSION TIMELINE</div>
+      <label class="v4-field-label" for="v4SnapshotName">Snapshot label</label><input id="v4SnapshotName" placeholder="e.g. FY27 Proposed Structure">
+      <button class="primary-btn wide-btn" id="v4SaveSnapshot" style="margin-top:8px">Save dated snapshot</button>
+      <div id="v4Snapshots" class="v4-mini-list"></div>
+    </section>
+    <section class="side-panel" id="panel-reviews">
+      <div class="section-caption">TEAM REVIEW WORKSPACE</div><div class="pane-heading"><h2>Review center</h2><span class="count-pill">OFFLINE</span></div>
+      <p class="muted pane-intro">Annotate a position, approve or request revisions, and exchange review packets as JSON. No simultaneous remote editing in this local edition.</p>
+      <label class="v4-field-label" for="v4Reviewer">Reviewer name</label><input id="v4Reviewer" placeholder="Your name" maxlength="100">
+      <label class="v4-field-label" for="v4ReviewPosition">Position</label><select id="v4ReviewPosition"></select>
+      <label class="v4-field-label" for="v4ReviewDecision">Decision</label><select id="v4ReviewDecision"><option value="Comment">Comment</option><option value="Approved">Approve</option><option value="Changes requested">Request changes</option></select>
+      <label class="v4-field-label" for="v4ReviewText">Review note</label><textarea id="v4ReviewText" rows="3" placeholder="What should the team consider?"></textarea>
+      <button class="primary-btn wide-btn" id="v4AddReview">Add review item</button>
+      <div id="v4ReviewSummary" class="v4-mini-list"></div>
+      <div class="v4-button-grid"><button class="secondary-btn" id="v4ExportReviews">Export packet</button><button class="secondary-btn" id="v4ImportReviews">Import packet</button></div>
+      <input type="file" id="v4ReviewsFile" accept="application/json,.json" hidden>
+      <p class="v4-help">Review packets can be emailed or shared manually. Imported records are merged by unique review ID. Use your organization's approved file-sharing system.</p>
+    </section>
+    <!-- STRUCTURA PRO 5.0 — VISUAL NAVIGATOR -->
+    <section class="side-panel" id="panel-navigator">
+      <div class="section-caption">ULTIMATE VISUAL DESIGNER</div><div class="pane-heading"><h2>Navigator</h2><span class="count-pill">5.0</span></div>
+      <p class="muted pane-intro">Find your way through complex hierarchies, bookmark views and apply display layers.</p>
+      <div class="v5-mini-frame"><div class="v5-section-head">MINIMAP <span id="v5MinimapCount">—</span></div><svg id="v5Minimap" role="img" aria-label="Clickable hierarchy minimap" viewBox="0 0 320 160"></svg><p class="v4-help">Click a card in the minimap to select it and move to its position.</p></div>
+      <div class="section-line"></div><div class="section-caption">BOOKMARKED VIEWS</div>
+      <input id="v5ViewName" placeholder="e.g. Executive leadership" maxlength="70" aria-label="Saved view name">
+      <button id="v5SaveView" class="primary-btn wide-btn" style="margin-top:8px">＋ Save current view</button><div class="v4-mini-list" id="v5SavedViews"></div>
+      <div class="section-line"></div><div class="section-caption">DISPLAY LAYERS</div>
+      <div class="v5-layers" id="v5LayerControls"></div>
+      <div class="section-line"></div><button id="v5SmartClean" class="secondary-btn wide-btn">✧ Intelligent canvas cleanup</button>
+      <button id="v5CheckLayout" class="secondary-btn wide-btn" style="margin-top:8px">Inspect layout & connections</button>
+      <div id="v5LayoutReport" class="v4-mini-list"></div>
+    </section>
+    <!-- STRUCTURA PRO 5.0 — COMMAND COPILOT -->
+    <section class="side-panel" id="panel-copilot">
+      <div class="section-caption">ADVANCED AI STUDIO</div><div class="pane-heading"><h2>Command Copilot</h2><span class="count-pill">OFFLINE</span></div>
+      <p class="muted pane-intro">Turn supported natural-language instructions into precise, previewable chart actions. No data leaves this browser.</p>
+      <label class="v4-field-label" for="v5Command">Tell AviOrg what to change</label>
+      <textarea id="v5Command" rows="6" placeholder="Set layout to horizontal&#10;Color by department&#10;Increase spacing"></textarea>
+      <button id="v5PreviewCommand" class="primary-btn wide-btn" style="margin-top:8px">✦ Preview actions</button>
+      <div id="v5CommandPreview" class="v4-mini-list"></div>
+      <div class="section-line"></div><div class="section-caption">QUICK COMMANDS</div>
+      <div class="v5-chip-grid" id="v5CommandSamples"></div>
+      <div class="section-line"></div><div class="section-caption">INTELLIGENT CHECKS</div>
+      <button class="secondary-btn wide-btn" id="v5AuditData">Analyze structure and data</button>
+      <div class="v4-mini-list" id="v5AuditResults"></div>
+      <p class="v4-help">The command copilot is a deterministic offline rule engine, not a hosted generative model. The original AI Studio supports approved outline imports and an optional local Ollama connection.</p>
+    </section>
+    <!-- STRUCTURA PRO 5.0 — DATA HUB -->
+    <section class="side-panel" id="panel-datahub">
+      <div class="section-caption">MICROSOFT OFFICE POWER TOOLS</div><div class="pane-heading"><h2>Data Hub</h2><span class="count-pill">SMART IMPORT</span></div>
+      <p class="muted pane-intro">Bring in Excel or CSV files with unfamiliar column names. Match fields, validate the hierarchy and approve changes before applying.</p>
+      <div class="v5-drop-zone"><b>Spreadsheet field mapper</b><small>Excel .xlsx or .csv · up to 15 MB</small><button id="v5ChooseData" class="primary-btn">↥ Choose workbook</button></div>
+      <input id="v5DataFile" type="file" accept=".xlsx,.csv" hidden>
+      <div id="v5Mapping" class="v4-mini-list"></div>
+      <div class="section-line"></div><div class="section-caption">POWERPOINT SOURCE ROUND-TRIP</div>
+      <div class="v5-info">An editable PowerPoint exported by Pro 5.0 now carries an embedded source project. Re-import the .pptx to edit the organization again. Generic Generic PowerPoint and SVG reconstruction is supported in Pro 6.0; PDF text and raster images require review or manual tracing.</div>
+      <button class="secondary-btn wide-btn" id="v5ReimportPptx">↥ Re-import AviOrg / legacy PowerPoint</button>
+      <button class="secondary-btn wide-btn" id="v5ExportOfficeBundle" style="margin-top:8px">↓ Download Office exchange pack</button>
+      <div class="v5-info" style="margin-top:9px">Includes the project JSON, directory CSV, editable SVG, and import guidance. PowerPoint and Excel export remain available in the Office tab.</div>
+      <div class="section-line"></div><div class="section-caption">CONNECTED OFFICE DEPLOYMENT</div>
+      <p class="v4-help">Real-time workbook synchronization, a native PowerPoint add-in, tenant sign-in, and conflict-resolution require Microsoft 365 authentication and a deployed backend. They are <b>not</b> provided by this local edition.</p>
+    </section>
+    <!-- STRUCTURA PRO 5.0 — WORKFORCE FORECAST -->
+    <section class="side-panel" id="panel-forecast">
+      <div class="section-caption">WORKFORCE INTELLIGENCE</div><div class="pane-heading"><h2>Forecast Studio</h2><span class="count-pill">WHAT-IF</span></div>
+      <p class="muted pane-intro">Model hiring from vacant positions, workforce exits and annual cost changes using the positions in your chart. Projections are illustrative.</p>
+      <div class="v5-forecast-inputs">
+        <div class="form-section"><div class="field-label"><label for="v5Hire">Vacant positions to fill</label><output id="v5HireVal">0</output></div><input id="v5Hire" class="range-input" type="range" min="0" max="0" value="0"></div>
+        <div class="form-section"><div class="field-label"><label for="v5ExitPct">Assumed attrition</label><output id="v5ExitPctVal">0%</output></div><input id="v5ExitPct" class="range-input" type="range" min="0" max="25" value="0"></div>
+        <div class="form-section"><div class="field-label"><label for="v5Uplift">Annual cost increase</label><output id="v5UpliftVal">0%</output></div><input id="v5Uplift" class="range-input" type="range" min="-10" max="20" value="0"></div>
+      </div>
+      <div id="v5ForecastKpis" class="v5-forecast-kpis"></div>
+      <div id="v5ForecastDetails" class="v4-mini-list"></div>
+      <div class="v4-button-grid"><button id="v5SavePlan" class="primary-btn">Save scenario</button><button id="v5ExportPlan" class="secondary-btn">Export CSV</button></div>
+      <div class="section-line"></div><div class="section-caption">SAVED FORECASTS</div><div id="v5SavedPlans" class="v4-mini-list"></div>
+      <div class="section-line"></div><div class="section-caption">SKILLS COVERAGE</div><div id="v5Skills" class="v4-mini-list"></div>
+      <p class="v4-help">Annual cost is entered in your chosen currency. Missing costs, vacant roles without costs, and future staffing assumptions affect estimates; these figures are not payroll forecasts.</p>
+    </section>
+
+    <section class="side-panel" id="panel-universal">
+      <div class="section-caption">PRO 6.0 · UNIVERSAL IMPORT</div><div class="pane-heading"><h2>Chart Importer</h2><span class="count-pill">6.0</span></div>
+      <p class="muted pane-intro">Recover editability from AviOrg and legacy Structura PowerPoints and SVGs. Extract potential reporting cards from ordinary PPTX shapes. PDF text can be reviewed as an outline; raster images support manual tracing.</p>
+      <div class="v6-drop"><span class="v6-drop-icon">⇪</span><b>Upload an existing chart</b><small>PPTX · VSDX · SVG · PDF · PNG · JPG</small><button class="primary-btn" id="v6ChooseUniversal">Choose chart file</button><input id="v6UniversalFile" type="file" accept=".pptx,.vsdx,.svg,.pdf,.png,.jpg,.jpeg,.webp" hidden></div>
+      <div id="v6ImportResult" class="v6-results"><div class="v6-hint">Imported structure is never applied until you review and approve the changes.</div></div>
+      <div class="section-line"></div><div class="section-caption">TRACE A CHART IMAGE</div>
+      <p class="v4-help">When automatic recognition is unavailable, load an image as a local reference, then enter its hierarchy in the outline field.</p>
+      <div id="v6ImageReference" class="v6-reference" hidden><img id="v6ReferenceImage" alt="Imported organization chart reference"></div>
+      <label class="v4-field-label" for="v6TraceOutline">Editable outline · indent subordinate roles</label><textarea id="v6TraceOutline" rows="6" placeholder="CEO | Chief Executive Officer | Executive&#10;  CFO | Finance Director | Finance&#10;  CTO | Technology Director | Technology"></textarea>
+      <button id="v6TracePreview" class="secondary-btn wide-btn">Preview outline as editable chart</button>
+      <p class="v4-help">Visual OCR is not bundled: extracted PDF text and traced image content require verification. Generic PPTX inference is heuristic.</p>
+    </section>
+    <section class="side-panel" id="panel-layoutdoctor">
+      <div class="section-caption">PRO 6.0 · INTELLIGENT DESIGN</div><div class="pane-heading"><h2>Layout Doctor</h2><span class="count-pill">SMART</span></div>
+      <p class="muted pane-intro">Inspect visual overlaps, connector crossings, clipping risks and hierarchy density. Correct layout without changing the people data.</p>
+      <div class="v6-label">ONE-CLICK LAYOUTS</div>
+      <div class="v6-template-grid"><button data-v6-density="board"><b>Executive</b><small>Balanced, spacious</small></button><button data-v6-density="compact"><b>Compact</b><small>Dense hierarchy</small></button><button data-v6-density="departments"><b>Departments</b><small>Color-coded</small></button><button data-v6-density="matrix"><b>Matrix</b><small>Clear dotted lines</small></button></div>
+      <button class="primary-btn wide-btn" id="v6QualityScan">✧ Run layout quality scan</button>
+      <div id="v6QualityResults" class="v6-results"></div>
+      <button class="secondary-btn wide-btn" id="v6FixLayout">Apply suggested layout repair</button>
+      <div class="section-line"></div><div class="section-caption">DESIGN GUARDRAILS</div>
+      <label class="v6-check"><input id="v6LockPreservation" type="checkbox" checked> Preserve locked card positions</label>
+      <label class="v6-check"><input id="v6AvoidCrowding" type="checkbox" checked> Increase crowded branch spacing</label>
+      <label class="v6-check"><input id="v6PreferElbows" type="checkbox" checked> Use clean orthogonal connector routing</label>
+      <p class="v4-help">The scanner samples connector geometry for speed. It does not claim that every crossing can be eliminated automatically.</p>
+    </section>
+    <section class="side-panel" id="panel-officerefresh">
+      <div class="section-caption">PRO 6.0 · OFFICE AUTOMATION</div><div class="pane-heading"><h2>Office Refresh</h2><span class="count-pill">LOCAL FILES</span></div>
+      <p class="muted pane-intro">Compare a newer Excel/CSV employee extract against this chart, review changed reporting relationships and regenerate native editable PowerPoint slides.</p>
+      <div class="v6-drop v6-office-drop"><span class="v6-drop-icon">▤</span><b>Compare updated workbook</b><small>XLSX or CSV, max 20 MB</small><button id="v6ChooseRefresh" class="primary-btn">Choose updated workbook</button><input id="v6RefreshFile" type="file" accept=".xlsx,.csv" hidden></div>
+      <div id="v6RefreshPreview" class="v6-results"></div>
+      <div class="section-line"></div><div class="section-caption">POWERPOINT OUTPUT</div>
+      <label for="v6ExportLayout" class="v4-field-label">Native editable presentation</label><select id="v6ExportLayout" class="v6-select"><option value="board">Boardroom presentation + departments</option><option value="departments">Department-by-department slides</option><option value="pages">Manager pages (12 directs per slide)</option><option value="overview">Organization overview</option><option value="teams">Leadership and teams</option></select>
+      <button id="v6ExportPpt" class="secondary-btn wide-btn">↓ Export refreshed editable PPTX</button>
+      <button id="v6ExportExchange" class="secondary-btn wide-btn">↓ Export Office exchange ZIP</button>
+      <div class="v6-hint" style="margin-top:12px"><b>Real integration boundary:</b> This is file-based Excel refresh and PowerPoint regeneration, not live Microsoft 365 sync or a registered Office add-in.</div>
+    </section>
+    <section class="side-panel" id="panel-intelligence">
+      <div class="section-caption">PRO 6.0 · WORKFORCE INTELLIGENCE</div><div class="pane-heading"><h2>People Analytics</h2><span class="count-pill">INSIGHTS</span></div>
+      <p class="muted pane-intro">Analyze position cost, FTE, vacancies, management span, organizational depth, and department staffing.</p>
+      <div id="v6Metrics" class="v6-metrics"></div>
+      <div class="section-line"></div><div class="section-caption">DEPARTMENT COST & POSITION PROFILE</div><div id="v6DeptAnalytics" class="v6-departments"></div>
+      <div class="section-line"></div><div class="section-caption">RISK THRESHOLDS</div>
+      <label for="v6SpanThreshold" class="v4-field-label">Flag managers with direct reports above</label><input id="v6SpanThreshold" type="number" min="2" max="80" value="10" class="v6-select">
+      <label for="v6VacancyThreshold" class="v4-field-label">Flag department vacancy rate over (%)</label><input id="v6VacancyThreshold" type="number" min="1" max="100" value="15" class="v6-select">
+      <button id="v6ScanWorkforce" class="primary-btn wide-btn">Analyze workforce risks</button><div id="v6WorkforceRisks" class="v6-results"></div>
+      <button id="v6ExportAnalytics" class="secondary-btn wide-btn">↓ Export insights CSV</button>
+      <p class="v4-help">All results are descriptive indicators, not individual performance judgments. Annual cost uses the values entered for positions.</p>
+    </section>
+    <section class="side-panel" id="panel-performance">
+      <div class="section-caption">PRO 6.0 · SCALE & QUALITY</div><div class="pane-heading"><h2>Performance</h2><span class="count-pill">LOCAL</span></div>
+      <p class="muted pane-intro">Manage large projects using selective SVG rendering. All position records remain in the data model and Office exports.</p>
+      <div id="v6PerfStats" class="v6-metrics"></div>
+      <label for="v6RenderLimit" class="v4-field-label">Maximum cards visible on canvas</label><select class="v6-select" id="v6RenderLimit"><option value="150">150 · Fastest</option><option value="300">300 · Recommended</option><option value="500">500 · Detailed</option><option value="800">800 · Heavy</option></select>
+      <div class="v6-actions"><button id="v6FocusSelected" class="secondary-btn">Focus selected team</button><button id="v6ShowFull" class="secondary-btn">Full hierarchy</button></div>
+      <button id="v6PerfBench" class="primary-btn wide-btn">Run performance check</button><div id="v6BenchReport" class="v6-results"></div>
+      <div class="section-line"></div><div class="section-caption">HIGH-VOLUME GUIDANCE</div><p class="v4-help">The performance limit controls only cards drawn on screen. Excel and project data remain intact. Overview export of very large charts may be unreadable; use paginated PowerPoint layouts. Saving many photos may exceed browser storage limits.</p>
+    </section>
+    <div class="side-footer">
+      <div class="ux-author-credit" aria-label="Application developer credit">
+        <span class="ux-author-monogram" aria-hidden="true">AE</span>
+        <div class="ux-author-copy"><span class="ux-author-label">DEVELOPED BY</span><button type="button" class="ux-author-name" id="uxAboutCreditBtn" title="About this application and its developer">Avinash Ekka <span aria-hidden="true">↗</span></button></div>
+      </div>
+      <div class="ux-save-line"><span class="status-dot"></span> Auto-saved in this browser <span class="foot-version">v6.0</span></div>
+    </div>
+  </aside>
+  <main class="workspace">
+    <header class="topbar"><div class="breadcrumb">Workspace <span>/</span> <strong>Organization chart</strong></div><div class="top-actions"><button class="top-btn inspector-toggle" id="toggleInspectorBtn" title="Edit selected person">✎</button><button class="top-btn" id="undoBtn" title="Undo (Ctrl+Z)">↶</button><button class="top-btn" id="redoBtn" title="Redo (Ctrl+Y)">↷</button><div class="top-split"></div><button class="text-btn new-chart-btn" id="newChartBtn">＋ New chart</button><button class="text-btn" id="importTopBtn">↥ <span>Import Excel</span></button><button class="export-btn" id="exportTopBtn">↥ <span>Export chart</span> <small>⌄</small></button></div></header>
+    <section class="project-head"><div><div class="eyebrow">ORGANIZATION DESIGNER <span>✦</span> LIVE EDITOR</div><div class="title-line"><input type="text" id="chartName" aria-label="Chart title" value="The organization" maxlength="90"><span class="live-pill"><i></i> LIVE</span></div><p>Intelligent organization design, universal imports, Office refresh, and workforce intelligence.</p></div><div class="stat-group"><div class="mini-stat"><b id="statPeople">11</b><span>Positions</span></div><div class="mini-stat"><b id="statLevels">3</b><span>Levels</span></div><div class="mini-stat"><b id="statTeams">4</b><span>Teams</span></div></div></section>
+    <section class="editor-shell"><div class="editor-toolbar"><div class="view-label"><span class="view-icon">▥</span><strong>Organization map</strong><span class="toolbar-divider"></span><span id="layoutName">Top-down hierarchy</span></div><div class="tool-cluster"><button class="pill-tool" id="focusTeamBtn" title="Focus on selected person and their team">⌗ <span>Focus team</span></button><button class="pill-tool" id="changeManagerBtn" title="Click this, then click the new manager">⇄ <span>Relink</span></button><button class="pill-tool" id="scenarioTopBtn" title="Compare with saved baseline">⧉ <span>Compare</span></button><button class="pill-tool" id="v4QuickSelectBtn" title="Ctrl/⌘-click cards for multi-select">☷ <span>Multi-select</span></button><button class="pill-tool" id="tidyTopBtn" title="Smart automatic layout">✦ <span>Tidy</span></button><button class="pill-tool" id="collapseAllBtn" title="Collapse/expand subtrees">⊟ <span>Collapse</span></button><button class="pill-tool" id="fitBtn" title="Fit chart to window">⛶ <span>Fit to view</span></button><div class="zoom-controller"><button id="zoomOutBtn" aria-label="Zoom out">−</button><span id="zoomValue">100%</span><button id="zoomInBtn" aria-label="Zoom in">＋</button></div></div></div>
+      <div class="stage" id="stage"><div class="stage-watermark">AVIORG CANVAS <span>✦</span></div><div class="empty-state" id="emptyState" hidden><div class="empty-icon">◇</div><h3>Your chart starts here</h3><p>Add someone or import Excel to begin.</p><button class="primary-btn" id="emptyAddBtn">＋ Add a person</button></div><div class="svg-outer" id="svgOuter"><svg id="chartSvg" xmlns="http://www.w3.org/2000/svg" aria-label="Editable organization chart"></svg></div><div class="canvas-legend" id="chartLegend"><span><i></i> Primary</span><span><i class="dotted"></i> Matrix</span></div><div class="canvas-tip">✥ Drag to position · Relink to change manager · Use Tidy for automatic layout</div></div>
+      <footer class="editor-footer"><div><span class="connected-dot"></span><span id="footerInfo">11 positions · 3 levels</span><span class="foot-divider">·</span><span id="footerLayout">Auto-layout</span><span id="focusInfo" class="focus-info" hidden>TEAM FOCUS</span></div><div><button class="footer-link" id="downloadSvgBtn">↓ SVG</button><button class="footer-link" id="downloadPngBtn">↓ PNG</button><span class="foot-divider">·</span><span>Offline workspace · data stays local</span></div></footer>
+    </section>
+    <footer class="app-bottom"><span>Crafted for teams that care about clarity.</span><span>AviOrg Studio <span class="sparkle">✦</span></span></footer>
+  </main>
+  <aside class="inspector"><div class="inspector-head"><span>PROPERTIES</span><span class="inspector-symbol">⦿</span></div><div id="selectedInspector"><div class="inspector-person"><div class="big-avatar" id="inspectorAvatar">AM</div><div class="inspector-caption">SELECTED TEAM MEMBER</div><h3 id="inspectorName">Alex Morgan</h3><span id="inspectorRole">Chief Executive Officer</span></div><div class="inspector-divider"></div>
+    <div class="fields-block"><div class="inspector-block-title">PERSON DETAILS</div><label for="fieldName">Full name</label><input id="fieldName" placeholder="e.g. Alex Morgan"><label for="fieldRole">Job title / designation</label><input id="fieldRole" placeholder="e.g. Director of Operations"><label for="fieldDept">Department</label><input id="fieldDept" placeholder="e.g. Marketing"><label for="fieldManager">Reports to</label><select id="fieldManager"></select><label for="fieldEmail">Email address</label><input type="email" id="fieldEmail" placeholder="name@company.com"><label for="fieldLocation">Location</label><input id="fieldLocation" placeholder="City, country"><label for="fieldPhone">Phone</label><input id="fieldPhone" placeholder="Optional">
+      <div class="inspector-block-title new-section-title">POSITION &amp; MATRIX</div>
+      <label for="fieldStatus">Position status</label><select id="fieldStatus"><option value="Active">Filled / active</option><option value="Vacant">Vacant / open</option><option value="Planned">Planned</option></select>
+      <label for="fieldGrade">Grade / level</label><input id="fieldGrade" placeholder="e.g. L5, Director, G7">
+      <label for="fieldSecondary">Dotted-line reports to</label><select id="fieldSecondary"></select>
+      <label for="fieldNotes">Internal note</label><textarea id="fieldNotes" rows="2" placeholder="Optional position notes"></textarea>
+      <div class="inspector-block-title new-section-title">WORKFORCE PLANNING</div>
+      <label for="v4Fte">FTE allocation</label><input id="v4Fte" type="number" min="0" max="4" step="0.1" placeholder="1.0">
+      <label for="v4AnnualCost">Annual position cost (your currency)</label><input id="v4AnnualCost" type="number" min="0" step="1" placeholder="0">
+      <label for="v4CostCenter">Cost center</label><input id="v4CostCenter" placeholder="e.g. CC-001">
+      <label for="v4EffectiveDate">Effective date</label><input id="v4EffectiveDate" type="date">
+      <div class="inspector-block-title new-section-title">PRO 5.0 POSITION INTELLIGENCE</div>
+      <label for="v5PositionId">Position ID (optional)</label><input id="v5PositionId" placeholder="e.g. POS-1001" maxlength="80">
+      <label for="v5EmploymentType">Employment type</label><select id="v5EmploymentType"><option value="">Not specified</option><option value="Permanent">Permanent</option><option value="Contract">Contract</option><option value="Temporary">Temporary</option><option value="Consultant">Consultant</option><option value="Other">Other</option></select>
+      <label for="v5SkillsInput">Skills / competencies</label><textarea id="v5SkillsInput" rows="2" placeholder="Excel, Finance, Analytics"></textarea>
+      <div class="profile-photo-control"><label>Profile photo</label><div class="profile-photo-actions"><button class="secondary-btn" id="uploadPhotoBtn" type="button">↥ Upload photo</button><button class="quiet-btn" id="removePhotoBtn" type="button">Remove</button></div><small>JPG, PNG or WebP. Stored locally with this project.</small></div></div>
+    <div class="inspector-divider"></div><div class="inspector-block-title">QUICK ACTIONS</div><button class="primary-btn wide-btn" id="addChildBtn">＋ Add direct report</button><div class="inspector-action-row"><button class="secondary-btn" id="addSiblingBtn">＋ Sibling</button><button class="secondary-btn" id="toggleNodeBtn">⊟ Collapse</button></div><button class="danger-btn" id="deletePersonBtn">⌫ Remove person</button>
+  </div><div class="empty-inspector" id="emptyInspector" hidden><div>◇</div><h3>No person selected</h3><p>Click a card in your chart to view and edit their details.</p></div><div class="inspector-bottom"><div class="inspector-tip">✦ <span><b>Tip</b> Double-click a person to add their direct report instantly.</span></div></div></aside>
+</div>
+<div class="modal-backdrop" id="modalBackdrop" hidden><div class="modal" role="dialog" aria-modal="true" id="modal"><div class="modal-header"><div><span class="modal-eyebrow" id="modalEyebrow">WORKSPACE TOOLS</span><h2 id="modalTitle">Export your chart</h2></div><button class="close-modal" id="modalClose" aria-label="Close dialog">×</button></div><div class="modal-body" id="modalBody"></div></div></div>
+<div class="toast-stack" id="toastStack" role="status" aria-live="polite"></div>
+<input id="fileInput" type="file" accept=".xlsx,.csv,.json,.pptx,.vsdx,.svg,.pdf" hidden><input id="photoInput" type="file" accept="image/jpeg,image/png,image/webp" hidden>
+<script src="assets/vendor/jszip.min.js"></script><script src="assets/vendor/pptxgen.min.js"></script><script src="assets/js/app.js"></script><script src="assets/js/pro4.js"></script><script src="assets/js/pro5.js"></script><script src="assets/js/pro6.js"></script><script src="assets/js/premium.js"></script>
+</body></html>
