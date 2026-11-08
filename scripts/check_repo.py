@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 FILES = ['index.html', 'assets/brand/logo.svg', 'assets/css/styles.css',
          'assets/css/premium.css', 'assets/js/app.js', 'assets/js/premium.js',
          'assets/vendor/jszip.min.js', 'assets/vendor/pptxgen.min.js',
-         'standalone/AviOrg_Studio_Pro_6_1.html']
+         'standalone/AviOrg_Studio_Pro_6_3_Luxury.html']
 
 class Assets(HTMLParser):
     def __init__(self):
@@ -32,7 +32,7 @@ def main():
     assert not missing_assets, f'Broken local references: {missing_assets}'
     assert 'assets/js/premium.js' in p.assets
     assert 'assets/vendor/jszip.min.js' in p.assets
-    bundled=(ROOT/'standalone/AviOrg_Studio_Pro_6_1.html').read_text(encoding='utf-8')
+    bundled=(ROOT/'standalone/AviOrg_Studio_Pro_6_3_Luxury.html').read_text(encoding='utf-8')
     assert 'Developed by Avinash Ekka' in bundled
     assert 'class="app-shell"' in bundled
     assert 'assets/js/' not in bundled, 'Standalone app still links to script files'

@@ -81,8 +81,8 @@
   tools.append(focus,props);top.insertBefore(tools,top.querySelector('.top-actions'));
   focus.addEventListener('click',()=>setFocus(!stateUX.focus));props.addEventListener('click',toggleInspector);
   const local=$id('chartName')?.parentElement?.querySelector('.live-pill');if(local)local.innerHTML='<i></i> LOCAL';
-  document.querySelector('.app-bottom')?.querySelector('span:last-child')?.replaceChildren(document.createTextNode('AviOrg Studio · Pro 6.1'));
-  const proPill=document.querySelector('.pro-pill');if(proPill)proPill.textContent='PRO 6.1';const footVersion=document.querySelector('.foot-version');if(footVersion)footVersion.textContent='v6.1';
+  document.querySelector('.app-bottom')?.querySelector('span:last-child')?.replaceChildren(document.createTextNode('AviOrg Studio · Pro 6.3'));
+  const proPill=document.querySelector('.pro-pill');if(proPill)proPill.textContent='PRO 6.3';const footVersion=document.querySelector('.foot-version');if(footVersion)footVersion.textContent='v6.3';
  }
  function setupCanvasToolbar(){
   const toolbar=document.querySelector('.editor-toolbar'),cluster=toolbar?.querySelector('.tool-cluster'),zoom=cluster?.querySelector('.zoom-controller');
@@ -235,7 +235,7 @@
   button.addEventListener('click',()=>{
     if(typeof openModal!=='function')return;
     openModal('About AviOrg Studio','APPLICATION CREDITS',`<div class="ux-credit-modal">
-      <div class="ux-credit-hero"><div class="ux-credit-logo" aria-hidden="true">AE</div><div><div class="ux-credit-heading">Developed by Avinash Ekka</div><div class="ux-credit-desc">AviOrg Studio · Pro 6.1 · Intelligent Organization Design</div></div></div>
+      <div class="ux-credit-hero"><div class="ux-credit-logo" aria-hidden="true">AE</div><div><div class="ux-credit-heading">Developed by Avinash Ekka</div><div class="ux-credit-desc">AviOrg Studio · Pro 6.3 · Intelligent Organization Design</div></div></div>
       <p class="ux-credit-text">A premium, offline-first workspace for building organization charts, editing reporting structures, designing professional layouts, and preparing editable Office presentations.</p>
       <p class="ux-credit-text">Application developer: <span class="ux-credit-author">Avinash Ekka</span>.</p>
     </div>`);

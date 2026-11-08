@@ -32,7 +32,7 @@ class SiteTests(unittest.TestCase):
                 page=b.new_page(viewport={'width':1440,'height':900},accept_downloads=True)
                 errors=[]
                 page.on('pageerror',lambda e: errors.append(str(e)))
-                page.set_content((ROOT/'standalone/AviOrg_Studio_Pro_6_1.html').read_text(encoding='utf-8'),wait_until='load')
+                page.set_content((ROOT/'standalone/AviOrg_Studio_Pro_6_3_Luxury.html').read_text(encoding='utf-8'),wait_until='load')
                 page.wait_for_selector('#chartSvg .node-card',timeout=12000)
                 self.assertIn('AviOrg Studio',page.title())
                 self.assertTrue(page.locator('#uxAboutCreditBtn').is_visible())
