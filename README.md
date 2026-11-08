@@ -1,108 +1,145 @@
 <div align="center">
-  <img src="assets/brand/logo.svg" alt="AviOrg Studio logo" width="84" />
+  <img src="assets/brand/logo.svg" alt="AviOrg Studio logo" width="88" />
 
-  # AviOrg Studio
-  ### Intelligent Organization Design, Simplified
+# AviOrg Studio
+### Intelligent Organization Design, Simplified
 
-  **A premium, browser-based organizational chart designer**  
-  Create, customize, analyze, and export beautiful organization charts — without installing a complex application.
+**A premium browser-based organizational chart designer**  
+Create, customize, analyze, and export beautiful organization charts with a polished visual editor.
 
-  **AviOrg Pro 6.1** · **Developed by Avinash Ekka**
+**AviOrg Pro 6.1** · **Developed by Avinash Ekka**
 
-  [Explore Features](#features) · [View Screenshots](#application-screenshots) · [Get Started](#get-started) · [Excel & PowerPoint](#excel-and-powerpoint) 
+[Features](#features) · [Screenshots](#screenshots) · [How to Use](#how-to-use) · [Excel & PowerPoint](#excel--powerpoint)
 </div>
 
 ---
 
-## Application screenshots
+## Screenshots
 
-### Organization Chart Designer
+### Main application
 
-![AviOrg Studio premium chart editor showing organizational hierarchy, controls, and chart canvas](docs/AviOrg_Studio_Preview.png)
+![AviOrg Studio main editor](docs/AviOrg_Studio_Preview.png)
 
-### About & Developer Credits
+### Org chart design gallery
 
-![AviOrg Studio developer credits and app branding](docs/AviOrg_Credits.png)
+![AviOrg Studio design gallery showing different orgchart themes, layouts, colors, and card styles](docs/AviOrg_Design_Gallery.png)
 
-The screenshots show the actual AviOrg Studio interface.
+### More app views
+
+<table>
+  <tr>
+    <td align="center"><img src="docs/AviOrg_Command_Palette.png" alt="AviOrg Studio command palette" width="100%" /><br /><sub><b>Command palette</b></sub></td>
+    <td align="center"><img src="docs/AviOrg_Tool_Library.png" alt="AviOrg Studio tool library" width="100%" /><br /><sub><b>Tool library</b></sub></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="docs/AviOrg_Universal_Importer.png" alt="AviOrg Studio universal importer" width="100%" /><br /><sub><b>Universal importer</b></sub></td>
+    <td align="center"><img src="docs/AviOrg_Workforce_Analytics.png" alt="AviOrg Studio workforce analytics" width="100%" /><br /><sub><b>Workforce analytics</b></sub></td>
+  </tr>
+</table>
+
+### About & developer credits
+
+![AviOrg Studio credits panel](docs/AviOrg_Credits.png)
 
 ## Features
 
-| Module | What you can do |
-| --- | --- |
-| **Visual Chart Designer** | Create and edit reporting hierarchies; drag and position cards; zoom, focus, align, and arrange your chart. |
-| **Premium Design Library** | Choose from **500 design combinations**, customize card styles, palettes, typography, spacing, and connectors. |
-| **Excel & CSV Import** | Import employee data in bulk with flexible column mapping, data validation, and a review step before applying changes. |
-| **Editable PowerPoint Export** | Produce presentations with native editable PowerPoint shapes and text, including multi-slide organization charts. |
-| **Flexible Reporting** | Represent primary and dotted-line managers, position status, departments, and reporting structures. |
-| **Workforce Analytics** | Explore position counts, vacancies, FTE, reporting spans, department summaries, and annual position costs. |
-| **Scenario Planning** | Save organization snapshots, compare changes, and explore alternative reporting structures. |
-| **Smart Imports** | Recover supported AviOrg/legacy Structura presentations, and review *estimated* hierarchy reconstructions from compatible diagrams and text PDFs. |
-| **AI-assisted Tools** | Use supported natural-language editing commands, layout checks, and optional locally configured AI services. |
-| **Fast Navigation** | Search employees and tools, open the command palette with **Ctrl+K** (or **Cmd+K**), and use focused canvas views. |
-| **Portable Projects** | Export charts to PDF, PNG, SVG, and JSON; download CSV/XLSX employee data and re-open saved project backups. |
+- **Premium chart editor** with drag-and-drop editing, zooming, focusing, alignment, spacing, and smart arrangement.
+- **500 design combinations** with multiple styles, palettes, typography, connectors, and presentation-friendly layouts.
+- **Bulk Excel and CSV import** with flexible column mapping, validation, and import review.
+- **Editable PowerPoint export** with native shapes and text, not just a flat image.
+- **PDF, PNG, SVG, XLSX, CSV, and JSON export** for sharing and reuse.
+- **Matrix reporting** with primary and dotted-line relationships.
+- **Scenario planning** to compare hierarchy changes and explore future structures.
+- **Workforce intelligence** including headcount, vacancies, FTE, department summaries, and annual position costs.
+- **Universal importer** for supported AviOrg/legacy Structura files and review-based reconstruction from selected external chart formats.
+- **AI-assisted tools** for supported commands, previews, layout checks, and optional local AI workflows.
+- **Searchable command palette** and streamlined navigation for faster use.
+- **Offline-ready usage** through the standalone HTML edition.
 
-## Get started
+## How to use
 
-**No installation or account is required** for the standalone edition. AviOrg Studio runs in a modern desktop browser such as Google Chrome or Microsoft Edge.
+### Option 1 — Use the standalone app (recommended)
 
-### Option A — Open the standalone app (easiest)
+1. Download the standalone file: [`standalone/AviOrg_Studio_Pro_6_1.html`](standalone/AviOrg_Studio_Pro_6_1.html)
+2. Open it in **Google Chrome** or **Microsoft Edge**.
+3. Start with a sample organization or build your chart from scratch.
+4. Import your employee data if needed.
+5. Customize the org chart and export it in your preferred format.
 
-1. Download the [standalone HTML application](standalone/AviOrg_Studio_Pro_6_1.html) from this repository (use GitHub's **Download raw file** action).
-2. Open `AviOrg_Studio_Pro_6_1.html` in **Chrome** or **Edge**.
-3. Start with the sample organization, create employee cards, or import an Excel/CSV file.
-4. Customize the layout and colors, then export your chart.
+### Option 2 — Use the website version locally
 
-The standalone HTML bundles the required application scripts and works offline.
-
-### Option B — Run the website locally
-
-For the modular website edition, download the repository and run a local web server in its directory:
+If you downloaded the repository, you can run it locally with a simple server:
 
 ```bash
 python -m http.server 8000
 ```
 
-Open **http://localhost:8000** in your browser. The website edition can also be hosted on a static web server, including GitHub Pages.
+Then open:
 
-## Create your first organization chart
+```text
+http://localhost:8000
+```
 
-1. **Add people or positions.** Use the editor to create cards, set names and job titles, and select each person's reporting manager.
-2. **Or import from Excel.** Open the import/Data Hub tools and upload your completed workbook.
-3. **Review reporting relationships.** Confirm manager IDs and correct any validation warnings. Dotted-line managers can be configured separately.
-4. **Choose your design.** Apply a template, adjust colors, card spacing, line routing, and typography.
-5. **Arrange and explore.** Use zoom, focused views, auto-layout, and the inspector to refine the chart.
-6. **Export or save.** Download a PowerPoint, PDF, image, spreadsheet, or JSON backup of the project.
+## Create your first org chart
 
-## Excel and PowerPoint
+1. **Add employee or position cards** manually, or import them from Excel.
+2. **Set reporting relationships** by selecting each person's manager.
+3. **Apply a design** from the style library.
+4. **Adjust colors, spacing, connectors, and typography** to match your needs.
+5. **Use analytics and planning tools** if you want headcount insights or scenario comparisons.
+6. **Export your chart** as PowerPoint, PDF, image, or spreadsheet.
 
-### Import employee data in Excel
+## Excel & PowerPoint
 
-Use the ready-made [Excel Import Template](examples/AviOrg_Excel_Import_Template.xlsx) to prepare employee records, reporting relationships, departments, and position details. The import preview helps identify missing managers and other data issues before updating the chart.
+### Excel import
 
-### Export a PowerPoint you can edit
+Use the ready-made template here:
 
-Choose **PowerPoint (PPTX)** in the export tools to generate editable chart objects rather than just a picture of the chart. Open the `.pptx` in PowerPoint to adjust shapes, text, and formatting.
+- [Excel Import Template](examples/AviOrg_Excel_Import_Template.xlsx)
 
-See a [sample editable PowerPoint presentation](examples/AviOrg_Editable_Example.pptx).
+The import tools help validate managers, map columns, and review updates before applying them to your chart.
 
-**Other formats:** PDF, PNG, SVG, XLSX, CSV, and JSON. Supported AviOrg-generated presentations can also retain embedded source data for re-importing into AviOrg Studio. Generic imported diagrams may require manual review.
+### PowerPoint export
 
-## Who is it for?
+AviOrg Studio can generate editable PowerPoint slides. You can review the sample here:
 
-AviOrg Studio is designed for **HR professionals, managers, consultants, business teams, nonprofit organizations, and anyone who needs to present clear reporting structures**. It works for quick team charts, departmental plans, organizational redesigns, and leadership presentations.
+- [Editable PowerPoint Example](examples/AviOrg_Editable_Example.pptx)
 
-## Privacy and limitations
+## Repository contents
 
-- The standalone editor processes imported employee data in your browser and may store project state in that browser's local storage. **Avoid shared devices for confidential data** and keep regular JSON backups.
-- A publicly hosted static page is **not** a private HR portal. Never commit real employee lists, sensitive records, credentials, or confidential organization charts to a public repository.
-- AI assistance primarily consists of supported local commands; optional local AI integrations require their own configuration. General-purpose cloud AI is not built in.
-- Image/scanned-PDF recognition is not a guaranteed automatic conversion capability. Estimated reporting relationships from external charts should always be verified.
-- Live Microsoft 365 synchronization, native Office add-ins, real-time collaboration, SSO, and secure multi-user approvals require a separate authenticated deployment.
+```text
+AviOrg-Studio/
+├── index.html
+├── assets/
+├── docs/
+├── examples/
+├── standalone/
+├── scripts/
+├── tests/
+└── .github/
+```
+
+## Best for
+
+AviOrg Studio is useful for:
+
+- HR teams
+- managers and department heads
+- business consultants
+- project and program teams
+- nonprofit organizations
+- anyone who needs clear, beautiful organizational charts
+
+## Notes and limitations
+
+- The standalone app works offline in the browser.
+- Sensitive employee data should not be stored in a public repository.
+- Some advanced enterprise capabilities—such as live Microsoft 365 sync, real-time collaboration, SSO, and hosted cloud AI—require a separate deployment beyond this static repository.
+- Import reconstruction from external files may require manual review.
 
 ## Credits
 
 **AviOrg Studio — Developed by Avinash Ekka**  
 *Exploring AI and technology to make everyday work easier, smarter, and more efficient.*
 
-For third-party dependencies see [Third-Party Notices](THIRD_PARTY_NOTICES.md). See [Licensing Information](docs/LICENSING.md) for the project's current licensing status.
+For third-party libraries, see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
